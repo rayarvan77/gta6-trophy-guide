@@ -1,0 +1,268 @@
+/* Leonida Ledger — our own look: Vice nights. Deep navy, sunset coral, paper-cream text.
+   System font stacks only; nothing is loaded from the network. */
+
+:root {
+  --navy: #0e1622;
+  --navy-2: #16202f;
+  --panel: #1a2637;
+  --panel-2: #213049;
+  --ink: #f2ede3;
+  --ink-dim: #b9c0cb;
+  --ink-faint: #85909e;
+  --coral: #ff6b4a;
+  --coral-soft: #ff8a6d;
+  --gold: #d4af5a;
+  --silver: #c3c9cf;
+  --bronze: #c98b5e;
+  --platinum: #d8e1ea;
+  --teal: #4ec9b0;
+  --line: #2c3a4f;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: Iowan Old Style, Palatino, Palatino Linotype, Georgia, serif;
+  line-height: 1.15;
+  margin: 0;
+}
+
+a { color: var(--coral-soft); }
+
+/* Masthead */
+.masthead {
+  background: linear-gradient(135deg, #101d2e 0%, #1a2c44 55%, #3a2a3c 100%);
+  border-bottom: 3px solid var(--coral);
+}
+.masthead-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 22px 20px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 40px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.brand { display: flex; gap: 14px; align-items: center; }
+.brand-mark {
+  width: 52px; height: 52px; flex: none;
+  display: grid; place-items: center;
+  background: var(--coral); color: #1a0d08;
+  font-family: Iowan Old Style, Palatino, Georgia, serif;
+  font-weight: 700; font-size: 22px; letter-spacing: 1px;
+  border-radius: 12px;
+  transform: rotate(-4deg);
+}
+.brand h1 { font-size: 34px; letter-spacing: .5px; }
+.tagline { margin: 2px 0 0; color: var(--ink-dim); font-size: 13.5px; }
+
+.progress-block { min-width: 280px; flex: 1 1 320px; max-width: 430px; }
+.progress-numbers { font-family: Iowan Old Style, Palatino, Georgia, serif; font-size: 26px; }
+.progress-numbers .of { font-size: 15px; color: var(--ink-dim); font-family: inherit; }
+.progress-bar {
+  height: 10px; background: #0a111c; border-radius: 6px;
+  margin: 6px 0; overflow: hidden; border: 1px solid var(--line);
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--coral));
+  transition: width .3s ease;
+}
+.progress-sub { margin: 0; color: var(--ink-dim); font-size: 12.5px; }
+
+.tabs {
+  max-width: 1180px; margin: 0 auto; padding: 0 20px;
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.tab {
+  color: var(--ink-dim); text-decoration: none;
+  padding: 9px 16px 11px; font-weight: 600; font-size: 14.5px;
+  border-bottom: 3px solid transparent;
+}
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--ink); border-bottom-color: var(--coral); }
+
+/* Layout */
+main { max-width: 1180px; margin: 0 auto; padding: 20px; }
+.view h2 { font-size: 26px; margin: 4px 0 8px; }
+.view h3 { font-size: 19px; margin: 26px 0 8px; }
+.lede { color: var(--ink-dim); max-width: 760px; margin: 0 0 14px; }
+
+/* Controls */
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: end;
+  background: var(--navy-2); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px;
+}
+.controls label { font-size: 13px; color: var(--ink-dim); font-weight: 600; }
+.controls input[type="search"], .controls select {
+  display: block; margin-top: 4px;
+  background: #0a111c; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 7px;
+  padding: 8px 10px; font-size: 14px;
+}
+.controls input[type="search"] { width: 280px; max-width: 70vw; }
+.spoiler-toggle {
+  display: flex; align-items: center; gap: 7px;
+  padding-bottom: 9px; cursor: pointer; color: var(--ink);
+}
+.spoiler-toggle input { width: 17px; height: 17px; accent-color: var(--coral); }
+
+.kind-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.chip {
+  background: var(--navy-2); color: var(--ink-dim);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 13px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.chip:hover { color: var(--ink); border-color: var(--coral); }
+.chip.active { background: var(--coral); border-color: var(--coral); color: #1a0d08; }
+.chip .count { opacity: .75; font-weight: 400; margin-left: 3px; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.showing { margin: 0; color: var(--ink-dim); font-size: 13.5px; }
+.toolbar-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+button, .import-label {
+  background: var(--panel-2); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 7px;
+  padding: 8px 13px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+}
+button:hover, .import-label:hover { border-color: var(--coral); }
+.import-label input { display: none; }
+.hint {
+  background: #2a2118; border: 1px solid #6b4d2a; color: #f0d9b5;
+  border-radius: var(--radius); padding: 10px 14px; font-size: 13.5px;
+}
+
+/* Trophy list */
+.trophy-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.trophy-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 13px 15px;
+}
+.trophy-card.earned { border-color: #4a6b4f; }
+.trophy-card.missable-card { border-left: 4px solid var(--coral); }
+.trophy-head { display: flex; gap: 12px; align-items: flex-start; }
+.trophy-check {
+  width: 22px; height: 22px; flex: none; margin-top: 2px;
+  accent-color: var(--teal); cursor: pointer;
+}
+.medal {
+  width: 26px; height: 26px; flex: none; margin-top: 1px;
+  border-radius: 50%; display: grid; place-items: center;
+  font-size: 12px; font-weight: 800; color: #14181d;
+}
+.medal.platinum { background: var(--platinum); }
+.medal.gold { background: var(--gold); }
+.medal.silver { background: var(--silver); }
+.medal.bronze { background: var(--bronze); }
+.trophy-main { flex: 1; min-width: 0; }
+.trophy-name {
+  font-family: Iowan Old Style, Palatino, Georgia, serif;
+  font-size: 17.5px; font-weight: 700; margin: 0;
+}
+.trophy-card.earned .trophy-name { color: var(--teal); }
+.trophy-desc { margin: 2px 0 0; color: var(--ink-dim); font-size: 14px; }
+.trophy-meta {
+  display: flex; flex-wrap: wrap; gap: 5px 10px; align-items: center;
+  margin-top: 7px; font-size: 12.5px; color: var(--ink-faint);
+}
+.tag {
+  background: var(--navy-2); border: 1px solid var(--line);
+  border-radius: 999px; padding: 1px 9px; font-size: 12px; color: var(--ink-dim);
+}
+.tag.missable-tag { background: #3a1d16; border-color: var(--coral); color: var(--coral-soft); }
+.tag.hidden-tag { color: var(--ink-faint); }
+.grade-word { text-transform: capitalize; font-weight: 700; }
+.grade-word.platinum { color: var(--platinum); }
+.grade-word.gold { color: var(--gold); }
+.grade-word.silver { color: var(--silver); }
+.grade-word.bronze { color: var(--bronze); }
+.guide-toggle {
+  flex: none; background: none; border: none; color: var(--coral-soft);
+  font-size: 13.5px; padding: 4px 2px; align-self: flex-start;
+}
+.guide-toggle:hover { text-decoration: underline; }
+.guide-body {
+  margin-top: 11px; padding-top: 11px; border-top: 1px dashed var(--line);
+}
+.guide-body p { margin: 0 0 9px; }
+.guide-body p:last-child { margin-bottom: 0; }
+.guide-label {
+  font-size: 12px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-faint); margin-bottom: 5px;
+}
+.spoiler-note {
+  background: #2a2118; border-radius: 7px; padding: 8px 11px;
+  font-size: 13px; color: #f0d9b5; margin: 0 0 9px;
+}
+.sources-line { font-size: 13px; color: var(--ink-dim); }
+.sources-line a { margin-right: 2px; }
+.empty { color: var(--ink-dim); text-align: center; padding: 30px 0; }
+
+/* Roadmap + missables */
+.stage {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px;
+}
+.stage h3 { margin-top: 0; }
+.stage h3 .stage-time { color: var(--coral-soft); font-size: 14px; font-family: inherit; }
+.stage ul { margin: 8px 0 0; padding-left: 20px; }
+.stage li { margin-bottom: 5px; }
+.stage li::marker { color: var(--coral); }
+.group-row {
+  display: flex; gap: 12px; align-items: baseline;
+  background: var(--navy-2); border: 1px solid var(--line);
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 8px;
+}
+.group-row .group-count {
+  font-family: Iowan Old Style, Palatino, Georgia, serif;
+  font-size: 20px; font-weight: 700; color: var(--coral-soft); min-width: 52px;
+}
+.group-row p { margin: 0; color: var(--ink-dim); }
+.group-row p strong { color: var(--ink); }
+.flag-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-left: 4px solid var(--coral);
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+}
+.flag-card h3 { margin-top: 0; }
+.flag-card p { margin: 6px 0 0; color: var(--ink-dim); }
+.flag-card p strong { color: var(--ink); }
+.tip-box {
+  background: #12241f; border: 1px solid #2c5a4c;
+  border-radius: var(--radius); padding: 14px 16px; margin-top: 18px;
+}
+.tip-box h3 { margin-top: 0; color: var(--teal); }
+.tip-box p { margin: 6px 0 0; color: var(--ink-dim); }
+.source-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+}
+.source-card h3 { margin-top: 0; }
+.source-card p { margin: 5px 0 0; color: var(--ink-dim); }
+
+footer {
+  max-width: 1180px; margin: 0 auto; padding: 8px 20px 28px;
+  color: var(--ink-faint); font-size: 12.5px;
+}
+footer p { margin: 0; }
+
+@media (max-width: 640px) {
+  .brand h1 { font-size: 26px; }
+  .controls input[type="search"] { width: 100%; }
+  .trophy-head { flex-wrap: wrap; }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="The offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: official names, descriptions and grades, a checklist saved in your browser, a roadmap to the platinum, and a cited guide to each trophy.">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">LL</div>
+      <div>
+        <h1>Leonida Ledger</h1>
+        <p class="tagline">The GTA VI trophy guide &amp; tracker — all 55 trophies, offline, in your own words</p>
+      </div>
+    </div>
+    <div class="progress-block" id="progress-block" aria-live="polite">
+      <div class="progress-numbers"><span id="earned-count">0</span><span class="of">/ 55 earned</span></div>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-sub" id="progress-sub">1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online</p>
+    </div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a class="tab" href="#tracker" data-view="tracker">Tracker</a>
+    <a class="tab" href="#roadmap" data-view="roadmap">Roadmap to Platinum</a>
+    <a class="tab" href="#missables" data-view="missables">Missables</a>
+    <a class="tab" href="#sources" data-view="sources">Sources</a>
+  </nav>
+</header>
+
+<main>
+  <section id="view-tracker" class="view">
+    <div class="controls" id="controls">
+      <label class="search-label">Search <input id="search" type="search" placeholder="Trophy name, mission, keyword…" autocomplete="off"></label>
+      <label class="grade-label">Grade
+        <select id="grade-filter">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="grade-label">Show
+        <select id="earned-filter">
+          <option value="all">All trophies</option>
+          <option value="earned">Earned only</option>
+          <option value="missing">Not earned yet</option>
+        </select>
+      </label>
+      <label class="spoiler-toggle"><input id="spoiler-toggle" type="checkbox"> Hide story spoilers</label>
+    </div>
+    <div class="kind-chips" id="kind-chips" role="group" aria-label="Filter by kind"></div>
+    <div class="toolbar">
+      <p class="showing" id="showing"></p>
+      <div class="toolbar-buttons">
+        <button id="export-btn" type="button">Export progress</button>
+        <label class="import-label">Import progress <input id="import-input" type="file" accept="application/json,.json"></label>
+        <button id="reset-btn" type="button">Reset</button>
+      </div>
+    </div>
+    <p class="hint" id="spoiler-hint" hidden>Story spoilers hidden: hidden story trophies show as “Hidden trophy” until you tick them earned. Untick the box above to reveal them.</p>
+    <ul class="trophy-list" id="trophy-list"></ul>
+    <p class="empty" id="empty-state" hidden>No trophies match these filters. Try clearing the search or choosing another kind.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">One playthrough is enough, about 200 hours by PowerPyx's estimate (difficulty 4/10), and there are no online trophies. The story takes 60–80 hours; the long tail is the 100% completion checklist. Work in three stages, and keep cheats off — using one disables trophies and saving.</p>
+    <div id="roadmap-stages"></div>
+    <h3>How the 55 split across the roadmap</h3>
+    <div id="roadmap-groups"></div>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missable trophies</h2>
+    <p class="lede">Only one trophy is flagged as potentially missable by the guides that have played the game. Everything else can be finished in free-roam after the story — there is no mission replay, but the story trophies pop automatically when you finish their mission, and every side questline stays open after the credits.</p>
+    <div id="missable-list"></div>
+    <h3>One-time moments — do them when they appear</h3>
+    <p class="lede">These trophies are tied to a single spot, vehicle or event rather than a grind. None is confirmed missable, but there is no reason to put them off: grab each one the first time the chance comes up.</p>
+    <div id="watch-list"></div>
+    <aside class="tip-box">
+      <h3>Save-slot safety net</h3>
+      <p>There is no mission replay and no New Game+, but there are 15 manual save slots and one autosave. PowerPyx recommends keeping a save at the start and end of each chapter (10 saves) and rotating the other five for free-roam cleanup — cheap insurance if anything ever goes wrong.</p>
+    </aside>
+  </section>
+
+  <section id="view-sources" class="view" hidden>
+    <h2>Sources &amp; method</h2>
+    <p class="lede">Every guide in this ledger is written in our own words for this entry. It may draw on other guides and cites them — a source is cited, never copied. The official trophy names and descriptions are the exception: they are shown exactly as PlayStation publishes them.</p>
+    <div id="sources-list"></div>
+    <h3>How we decided what is missable</h3>
+    <p class="lede">Missable flags come from two places: the official descriptions (a trophy tied to one named mission or one-off moment) and PowerPyx's launch guide, which played the game and flags exactly one trophy — Positive Mental Attitude — as potentially missable. Story trophies are automatic on mission completion and cannot be missed; the side-character questlines all stay available after the story. Where PowerPyx marks a trophy as not yet known, the guide says so plainly and works from the official description alone instead of inventing a method.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Ledger — an unofficial fan-made guide. Grand Theft Auto VI, GTA and Leonida belong to their owners; this guide uses no Rockstar logo, artwork or game screenshots. Trophy names and descriptions are shown as PlayStation publishes them. Works fully offline: progress lives in your browser (localStorage) and nothing is sent anywhere. <a href="https://make.fun">make.fun</a> bounty entry.</p>
+</footer>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
